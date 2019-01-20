@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config/>
+	<beans>
+		<!-- 配置接口类 -->
+		<bean id="userDao" class="com.imoco.spring_aop.spring.UserDaoImp"></bean>
+		<!-- 配置前置通知 -->
+		<bean id="beforeAdvice" class="com.imoco.spring_aop.spring.MyBeforeAdvice"/>
+		<!-- 配置增强引入 -->
+		<bean id="userDaoProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+			<!-- 目标对象 -->
+			<property name="target" ref="userDao"/>
+			<!-- 实现的接口 -->
+			<property name="proxyInterfaces" value="com.imoco.spring_aop.spring.UserDao"/>
+			<!-- 拦截的名称 -->
+			<property name="interceptorNames" value="beforeAdvice"/>
+		</bean>
+	</beans>
+
+</beans>

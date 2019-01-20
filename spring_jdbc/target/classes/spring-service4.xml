@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	  http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+<import resource="spring-dao.xml"/>
+<!-- 注入dao的实现 -->
+<context:component-scan base-package="com.imoco.springtrans.dao.imp"/>
+
+<!-- 拦截aop下的事务管理 -->
+<bean id ="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	<property name="dataSource" ref="dataSource"></property>
+</bean>
+	<!--目标对象 -->
+	<bean id="orderTarger" class="com.imoco.springtrans.service.imp4.OrderServiceImp"/>
+	<bean id="orderService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="target" ref="orderTarger"/>
+		<property name="transactionManager" ref="transactionManager"/>
+		<property name="transactionAttributes">
+		<props>
+				<prop key="get*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="find*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="seach*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+</beans>

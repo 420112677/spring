@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+      	 http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+	<!-- AspectJ的xml配置 -->
+	<bean id="customDao" class="com.spring.demo3.CustomDao"/>
+	<bean id="myAspectjAdvisor" class="com.spring.demo3.MyAspectJAdvisor" />
+	<aop:config >
+	<!-- 配置切面 -->
+		<aop:pointcut expression="execution(* com.spring.demo3.CustomDao.save(..))" id="pointcu1"/>
+		<aop:aspect ref="myAspectjAdvisor">
+			<aop:before method="before" pointcut-ref="pointcu1"/>
+		
+		</aop:aspect>
+	</aop:config>
+	
+</beans>
