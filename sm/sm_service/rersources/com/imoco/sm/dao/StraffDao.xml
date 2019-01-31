@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.4//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.imoco.sm.dao.StraffDao">
+	<resultMap type="Staff" id="resultMap">
+		<id property="id" column="id" javaType="Integer"/>
+		<result property="account" column="account" javaType="String"/>
+		<result property="password" column="password" javaType="String"/>
+		<result property="status" column="status" javaType="String"/>
+		<result property="did" column="did" javaType="Integer"/>
+		<result property="sex" column="sex" javaType="String"/>
+		<result property="idNumber" column="id_number" javaType="String"/>
+		<result property="workTime" column="work_time" javaType="java.util.Date"/>
+		<result property="leaveTime" column="leave_time" javaType="java.util.Date"/>
+		<result property="bornDate" column="born_date" javaType="java.util.Date"/>
+		<result property="info" column="info" javaType="String"/>
+		<association property="department" column="did" javaType="Department"  select="com.imoco.sm.dao.DepartmentDao.selectById"/>
+	</resultMap>
+<!-- 	 <insert id="insert" parameterType="Department" useGeneratedKeys="true" >
+		insert into staff(account,password,status,did) values(#{name},#{address});
+	</insert>
+	<delete id="delete" parameterType="Integer">
+		delete staff where id=#{id}
+	</delete>
+	<update id="update" parameterType="Department">
+		update staff set name=#{name},address=#{address} where id=#{id}
+	</update>
+	<select id="selectById" resultMap="resultMap" parameterType="Integer">
+		select * from staff where id=#{id}
+	</select>
+	<select id="selectAll" resultMap="resultMap">
+		select * from staff
+	</select>  -->
+</mapper>
