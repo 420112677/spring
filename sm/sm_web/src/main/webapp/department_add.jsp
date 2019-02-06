@@ -50,29 +50,6 @@ $(function(){
                             <i>*</i>
                         </div>
                     </li>
-                    <li class="clearfix">
-                        <span class="title">XXXXXXXX：</span>
-                        <div class="li_r">
-                            <span class="radio">
-                                <input checked="checked" name="hjzd" type="radio" value="">
-                                <em>否</em>
-                            </span>
-                            <span class="radio">
-                                <input name="hjzd" type="radio" value="">
-                                <em>是</em>
-                            </span>
-                        </div>
-                    </li>
-                    <li class="clearfix">
-                        <span class="title">XXXXXXXX：</span>
-                        <div class="li_r">
-				<select name="">
-				    <option>XXXX</option>
-				    <option>XXXX</option>
-				</select>
-                            <i>*</i>
-                        </div>
-                    </li>
                     <li class="tj_btn">
                     	<a href="javascript:history.go(-1);" class="back">返回</a>
                         <a href="javascript:addForm.submit();">保存</a>

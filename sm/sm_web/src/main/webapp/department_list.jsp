@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>XX列表</title>
+<title>部门列表</title>
 <link rel="stylesheet" type="text/css" href="../css/reset.css"/>
 <link rel="stylesheet" type="text/css" href="../css/common.css"/>
 <link rel="stylesheet" type="text/css" href="../css/thems.css">
@@ -44,9 +44,8 @@ $(function(){
 		                <td>${dep.name}</td>
 		                <td>${dep.address }</td>
 		                <td>
-							<a href="add.html" class="btn">编辑</a>
-							<a href="" class="btn">删除</a>
-							<a href="detail.html" class="btn">查看</a>
+							<a href="toEdit.do?id=${dep.id }" class="btn">编辑</a>
+							<a href="delete.do?id=${dep.id }" class="btn">删除</a>
 						</td>
 		              </tr>
                </c:forEach>

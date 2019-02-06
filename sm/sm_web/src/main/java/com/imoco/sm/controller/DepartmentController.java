@@ -35,4 +35,32 @@ public class DepartmentController {
 		departmentService.add(department);
 		response.sendRedirect("list.do");
 	}
+	
+	public void toEdit(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
+		String id =request.getParameter("id");
+		Department department=departmentService.get(Integer.parseInt(id));
+		request.setAttribute("dep", department);
+		request.getRequestDispatcher("../department_edit.jsp").forward(request, response);
+	}
+	public void edit(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
+		String id =request.getParameter("id");
+		String name=request.getParameter("name");
+		String address=request.getParameter("address");
+		Department department=departmentService.get(Integer.parseInt(id));
+		if (department!=null) {
+		department.setId(Integer.parseInt(id));
+		department.setName(name);
+		department.setAddress(address);
+		departmentService.edit(department);
+		}
+		response.sendRedirect("list.do");
+	}
+	public void delete(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
+		String id =request.getParameter("id");
+		Department department=departmentService.get(Integer.parseInt(id));
+		if (department!=null) {
+		departmentService.remove(Integer.parseInt(id));
+		}
+		response.sendRedirect("list.do");
+	}
 }

@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.imoco.sm.entity.Department;
 import com.imoco.sm.entity.Staff;
 @Repository("straffDao")
 public interface StraffDao {

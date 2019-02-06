@@ -25,7 +25,6 @@ public class DispatcherServlet extends GenericServlet {
 	}
 	@Override
 	public void destroy() {
-		// TODO Auto-generated method stub
 		super.destroy();
 	}
 
@@ -50,7 +49,7 @@ public class DispatcherServlet extends GenericServlet {
 			methodName=path.substring(index+1,path.indexOf(".do"));
 		}else{
 			beanName="selfController";
-			methodName=path.substring(path.indexOf(".do"));
+			methodName=path.substring(0,path.indexOf(".do"));
 
 		}
 		

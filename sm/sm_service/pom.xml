@@ -130,4 +130,19 @@
 		</dependency>
 
 	</dependencies>
+<!-- 	<resources>
+<resource>
+<directory>src/main/java</directory>
+<includes>
+打包java包下的.xml和.properties文件一起打包
+<include>**/*.properties</include>
+<include>**/*.xml</include>
+</includes>
+是否替换资源中的属性
+<filtering>false</filtering>
+</resource>
+<resource>
+<directory>src/main/resources</directory>
+</resource>
+</resources> -->
 </project>

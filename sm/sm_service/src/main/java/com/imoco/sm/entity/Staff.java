@@ -94,5 +94,11 @@ public class Staff {
 	public void setDepartment(Department department) {
 		this.department = department;
 	}
+	@Override
+	public String toString() {
+		return "Staff [id=" + id + ", account=" + account + ", password=" + password + ", status=" + status + ", did="
+				+ did + ", name=" + name + ", sex=" + sex + ", idNumber=" + idNumber + ", workTime=" + workTime
+				+ ", leaveTime=" + leaveTime + ", bornDate=" + bornDate + ", info=" + info + "]";
+	}
 	
 }
